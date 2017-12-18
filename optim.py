@@ -3,7 +3,7 @@ An optimizaer uses the gradients to adjust the weights
 of the neural net
 """
 
-from .nn import NeuralNet
+from nn import NeuralNet
 
 class Optimizer:
     def step(self, net: NeuralNet) -> None:

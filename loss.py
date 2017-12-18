@@ -3,7 +3,7 @@ A loss function measures how good or bad
 our predictions are, and gives us gradient
 """
 
-from .tensor import Tensor
+from tensor import Tensor
 import numpy as np
 
 class Loss:

@@ -4,7 +4,7 @@ We want to process our data in batches
 
 
 from typing import NamedTuple, Iterator
-from .tensor import Tensor
+from tensor import Tensor
 import numpy as np
 
 Batch = NamedTuple("Batch", [("inputs", Tensor), ("targets", Tensor)])
@@ -12,6 +12,7 @@ Batch = NamedTuple("Batch", [("inputs", Tensor), ("targets", Tensor)])
 class DataIterator:
     def __call__(self, inputs: Tensor, targets: Tensor) -> Iterator[Batch]:
         raise NotImplementedError
+
 
 class BatchIterator(DataIterator):
     def __init__(self, batch_size: int=32, shuffle: bool=True) -> None:

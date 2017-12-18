@@ -7,7 +7,7 @@ inputs --> linear --> tanh --> linear --> outputs
 """
 
 from typing import Dict, Callable
-from .tensor import Tensor
+from tensor import Tensor
 import numpy as np
 
 
@@ -60,6 +60,7 @@ F = Callable[[Tensor], Tensor]
 
 class Activation(Layer):
     def __init__(self, f:F, f_prime:F) -> None:
+        super().__init__()
         self.f = f
         self.f_prime = f_prime
 
@@ -79,4 +80,5 @@ def tanh_prime(x: Tensor) -> Tensor:
     return 1 - y ** 2
 
 class Tanh(Activation):
-    super().__init__(tanh, tanh_prime)
+    def __init__(self):
+        super().__init__(tanh, tanh_prime)
